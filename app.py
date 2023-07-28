@@ -17,7 +17,9 @@ connect_db(app)
 
 
 @app.get("/")
-def homepage():
-    """ """
+def list_pets():
+    """List pets"""
 
-    return render_template("index.html")
+    pets = Pet.query.all()
+
+    return render_template("index.html", pets=pets)

@@ -53,7 +53,7 @@ def show_add_pet_form():
         return redirect('/')
 
     else:
-        return render_template('add_pet_form.html', form=form)
+        return render_template('pet_add_form.html', form=form)
 
 @app.route("/<int:pet_id>", methods=["GET", "POST"])
 def view_and_edit_pet(pet_id):

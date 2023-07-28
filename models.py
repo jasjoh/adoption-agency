@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-DEFAULT_PET_PHOTO_URL = 'https://mylostpetalert.com/wp-content/themes/mlpa-child/images/nophoto.gif'
 
 def connect_db(app):
     """Connect to database."""
@@ -12,6 +11,7 @@ def connect_db(app):
     app.app_context().push()
     db.app = app
     db.init_app(app)
+
 
 class Pet(db.Model):
     """ A Pet. """
@@ -24,32 +24,37 @@ class Pet(db.Model):
         autoincrement=True,
     )
 
+    # TODO: Use a String() instead of Text
     name = db.Column(
         db.Text,
-        nullable = False,
+        nullable=False,
     )
 
+    # TODO: Use a String() instead of Text
     species = db.Column(
         db.Text,
-        nullable = False,
+        nullable=False,
     )
 
+    # TODO: Make not nullable - we don't not know, we just either have or don't
     photo_url = db.Column(
         db.Text,
-        default = '',
+        default='',
     )
 
+    # TODO: Use a String() instead of Text
     age = db.Column(
         db.Text,
-        nullable = False,
+        nullable=False,
     )
 
+    # TODO: Make not nullable - we don't not know, we just either have or don't
     notes = db.Column(
         db.Text
     )
 
     available = db.Column(
         db.Boolean,
-        nullable = False,
-        default = True
+        nullable=False,
+        default=True
     )

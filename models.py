@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+DEFAULT_PET_PHOTO_URL = 'https://mylostpetalert.com/wp-content/themes/mlpa-child/images/nophoto.gif'
 
 def connect_db(app):
     """Connect to database."""
@@ -52,7 +53,3 @@ class Pet(db.Model):
         nullable = False,
         default = True
     )
-
-
-
-        # db.CheckConstraint(age in ['baby', 'young', 'adult', 'senior']),

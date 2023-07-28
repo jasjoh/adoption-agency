@@ -4,13 +4,15 @@
 
 <h1>Pets</h1>
 
-{ % for pet in pets % }
+<a href='/add' class="add_pet_button btn btn-primary" role="button">Add Pet</a> <br>
 
-<img src=" {{ pet.photo_url }}" alt="">
+{% for pet in pets %}
 
-<p>{{ pet.name }} { % if pet.available %} <b>is available!</b> { % endif % }</p>
+<img src=" {{ pet.photo_url }}" alt="" width="300">
 
-{ % endfor % }
+<p>{{ pet.name }} {% if pet.available %} <b>is available! </b> {% endif %}</p>
+
+{% endfor %}
 
 
 {% endblock %}

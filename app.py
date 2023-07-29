@@ -1,10 +1,17 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 from flask import Flask, flash, redirect, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 
 from models import db, connect_db, Pet
 from forms import AddPetForm, EditPetForm
+
+PETFINDER_API_KEY = os.environ['PETFINDER_API_KEY']
+PETFINDER_SECRET_KEY = os.environ['PETFINDER_SECRET_KEY']
+
 
 app = Flask(__name__)
 
